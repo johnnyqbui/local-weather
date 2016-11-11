@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Weather App</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="currentWeatherBox">
+      <h2>Currently</h2>
+      <h1 class="location"></h1>
+      <canvas id="currentWeatherIcon" width="90" height="100"></canvas>
+      <div class="tempSummary"></div>
+    </div>
+    <div>
+      <ul class="moreInfo"></ul>
+    </div>
+    <div class="futureWeatherBox">
+      <h1>7-day Forecast</h1>
+      <div class="dailyForecast"></div>
+    </div>
+  </div>
+  <div class="footer">
+    <p>Created by Johnny Bui, 2016</p>
+    <script src="bundle.js"></script>
+    <a href="https://darksky.net/poweredby/"><img src="https://darksky.net/dev/img/attribution/poweredby-darkbackground.png" width="110px"></a>
+  </div>
+  <script src="https://rawgithub.com/darkskyapp/skycons/master/skycons.js">
+  </script>
+</body>
+
+</html>
