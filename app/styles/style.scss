@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css');
+@mixin borderStyleCorners($topLeft,
+$topRight,
+$bottomLeft,
+$bottomRight) {
+    border-top-left-radius: $topLeft;
+    border-top-right-radius: $topRight;
+    border-bottom-right-radius: $bottomRight;
+    border-bottom-left-radius: $bottomLeft;
+}
+
+@mixin centerFlex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+$footer: 48px;
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    margin: 0;
+    color: white;
+}
+
+.footer {
+    position: relative;
+    bottom: -($footer);
+    width: 100%;
+    height: $footer;
+    background: #383838;
+    @include centerFlex;
+    p {
+        font-size: 15px;
+        margin: 15px;
+    }
+}
+
+.container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.currentWeatherBox {
+    margin: 15px 10px 0 10px;
+    padding: 25px 0;
+    border: 5px solid white;
+    background: #486691;
+    @include borderStyleCorners(15px, 100px, 100px, 0px);
+    h2 {
+        margin: 0;
+    }
+    .location {
+        margin: 10px;
+    }
+    .toggleTemp {
+        font-size: 25px;
+        margin: 5px;
+        cursor: pointer;
+    }
+    .tempSummary {
+        @include centerFlex;
+    }
+    .temp {
+        font-size: 25px;
+    }
+    .summary {
+        font-size: 20px;
+        width: 100%;
+    }
+}
+
+.moreInfo {
+    font-size: 18px;
+    position: relative;
+    z-index: -1;
+    margin: -80px 15px 0 15px;
+    padding: 95px 15px 15px 15px;
+    list-style-type: none;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 95px;
+    background: #6e8b9e;
+    li {
+        display: inline-block;
+        padding: 0 30px;
+    }
+}
+
+.futureWeatherBox {
+    margin: 15px;
+    background: #3a5563;
+    @include borderStyleCorners(10px, 100px, 100px, 10px);
+    h1 {
+        margin: 0;
+        padding-top: 20px;
+    }
+    .dailyForecast {
+        padding: 25px;
+        @include centerFlex;
+    }
+    .boxes {
+        font-size: 16px;
+        width: 80px;
+        margin: 2px;
+        padding: 15px;
+        border: 2px solid white;
+        @include borderStyleCorners(10px,
+        10px,
+        10px,
+        10px);
+    }
+}
