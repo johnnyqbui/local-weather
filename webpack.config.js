@@ -1,12 +1,16 @@
 const webpack = require('webpack');
-
-process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     entry: [
         'script!jquery/dist/jquery.min.js',
         './app/app.js',
     ],
+    output: {
+        path: __dirname,
+        filename: './public/bundle.js',
+    },
     externals: {
         jquery: 'jQuery',
     },
@@ -21,17 +25,12 @@ module.exports = {
             }
         }),
         new webpack.optimize.DedupePlugin(),
-        new webpack.DefinePlugin({
-            'process.env': {
-                'NODE_ENV': JSON.stringify('production')
-            }
+        new HtmlWebpackPlugin({
+            filename: './public/index.html',
+            template: './app/app.html',
         }),
-        new webpack.HotModuleReplacementPlugin(),
+        new ExtractTextPlugin('./public/style.css')
     ],
-    output: {
-        path: __dirname,
-        filename: './public/bundle.js',
-    },
     module: {
         loaders: [{
             test: /\.js?$/,
@@ -42,11 +41,14 @@ module.exports = {
             exclude: /(node_modules|bower_components)/
         }, {
             test: /\.scss?$/,
-            loader: 'style!css!sass!'
-        }, {
-            test: /\.css?$/,
-            loader: 'style!css'
+            loader: ExtractTextPlugin.extract('style', 'css!sass!')
         }]
     },
-    devtool: process.env.NODE_ENV ? undefined : 'cheap-eval-source-map'
+    devServer: {
+        contentBase: (__dirname, 'public'),
+        inline: true,
+        progress: true,
+        stats: 'errors-only'
+    },
+    // devtool: 'cheap-eval-source-map'
 }

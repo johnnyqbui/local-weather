@@ -12,13 +12,13 @@ Objective: Display local weather
 
 * Open command prompt and run 'NPM install' to install required packages
 
-* Run 'npm start' to serve on localHost:8080
+* Run 'npm start' which runs webpack-dev-server to serve files on localhost:8080
 
-* Open Browser to localHost:8080
+* Open Browser to localhost:8080
 
 ## Created with:
 
 HTML/SCSS/JS/jQuery
 
-Bundled with Webpack.
+Minimized and Bundled with Webpack.
 
