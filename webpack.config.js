@@ -8,8 +8,8 @@ module.exports = {
         './app/app.js',
     ],
     output: {
-        path: __dirname,
-        filename: './public/bundle.js',
+        path: (__dirname, 'public'),
+        filename: 'bundle.js',
     },
     externals: {
         jquery: 'jQuery',
@@ -26,10 +26,10 @@ module.exports = {
         }),
         new webpack.optimize.DedupePlugin(),
         new HtmlWebpackPlugin({
-            filename: './public/index.html',
+            filename: 'index.html',
             template: './app/app.html',
         }),
-        new ExtractTextPlugin('./public/style.css')
+        new ExtractTextPlugin('style.css')
     ],
     module: {
         loaders: [{

@@ -38,7 +38,7 @@ function weatherData(coords) {
         tempConverter(current);
 
         function currentWeather(response) {
-            var humidity = current.humidity * 100;
+            var humidity = Math.round(current.humidity * 100);
             var precip = current.precipProbability;
             var fahrenheit = Math.round(current.temperature) + String.fromCharCode(176) + "F";
             var summary = current.summary;
