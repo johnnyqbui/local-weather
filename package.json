@@ -2,10 +2,7 @@
   "name": "local-weather",
   "version": "1.0.0",
   "description": "local weather app",
-  "main": "server.js",
-  "dependencies": {
-    "express": "^4.14.0"
-  },
+  "main": "webpack.config.js",
   "devDependencies": {
     "babel-core": "^6.17.0",
     "babel-loader": "^6.2.5",
@@ -26,5 +23,6 @@
     "start": "webpack-dev-server"
   },
   "author": "johnny bui",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {}
 }
